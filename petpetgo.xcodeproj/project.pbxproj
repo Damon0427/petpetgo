@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AACF0BEC2ADCBA360025BDD6 /* ApiAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */; };
 		AAF0C01F2AD8B2B5007E7254 /* petpetgoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0C01E2AD8B2B5007E7254 /* petpetgoApp.swift */; };
 		AAF0C0212AD8B2B5007E7254 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0C0202AD8B2B5007E7254 /* ContentView.swift */; };
 		AAF0C0232AD8B2B9007E7254 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0C0222AD8B2B9007E7254 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAnimal.swift; sourceTree = "<group>"; };
 		AAF0C01B2AD8B2B5007E7254 /* petpetgo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petpetgo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF0C01E2AD8B2B5007E7254 /* petpetgoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petpetgoApp.swift; sourceTree = "<group>"; };
 		AAF0C0202AD8B2B5007E7254 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +40,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AACF0BEA2ADCBA070025BDD6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAF0C0312AD8CA72007E7254 /* AccessToken.swift */,
+				AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AAF0C0122AD8B2B4007E7254 = {
 			isa = PBXGroup;
 			children = (
@@ -57,11 +68,11 @@
 		AAF0C01D2AD8B2B5007E7254 /* petpetgo */ = {
 			isa = PBXGroup;
 			children = (
+				AACF0BEA2ADCBA070025BDD6 /* Models */,
 				AAF0C02C2AD8B657007E7254 /* Constant */,
 				AAF0C01E2AD8B2B5007E7254 /* petpetgoApp.swift */,
 				AAF0C0202AD8B2B5007E7254 /* ContentView.swift */,
 				AAF0C02F2AD8B88F007E7254 /* Service.swift */,
-				AAF0C0312AD8CA72007E7254 /* AccessToken.swift */,
 				AAF0C0222AD8B2B9007E7254 /* Assets.xcassets */,
 				AAF0C0242AD8B2B9007E7254 /* Preview Content */,
 			);
@@ -154,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACF0BEC2ADCBA360025BDD6 /* ApiAnimal.swift in Sources */,
 				AAF0C0212AD8B2B5007E7254 /* ContentView.swift in Sources */,
 				AAF0C0302AD8B88F007E7254 /* Service.swift in Sources */,
 				AAF0C01F2AD8B2B5007E7254 /* petpetgoApp.swift in Sources */,

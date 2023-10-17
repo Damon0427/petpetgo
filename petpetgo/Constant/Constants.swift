@@ -12,7 +12,7 @@ enum AppError : Error {
     case invailURL
     case invailToken
     case invailRequest
-    
+    case invailHttpResponse
 }
 
 class ApiConstants {

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "63AAF275-8C12-436C-B090-E12A266B454D"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7DC6EA88-3FA6-4C81-809A-DA1D2F859C16"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "petpetgo/Service.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "getAccessToken()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7DC6EA88-3FA6-4C81-809A-DA1D2F859C16 - 98cd89bb4325f75c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "petpetgo.petService.getAccessToken() async throws -&gt; ()"
+                  moduleName = "petpetgo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damontan/Desktop/petpetgo/petpetgo/Service.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "7DC6EA88-3FA6-4C81-809A-DA1D2F859C16 - 8200e7578dd50e37"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for petpetgo.petService.getAccessToken() async throws -&gt; ()"
+                  moduleName = "petpetgo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/damontan/Desktop/petpetgo/petpetgo/Service.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
