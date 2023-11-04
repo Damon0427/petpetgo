@@ -41,13 +41,12 @@ struct petService {
         return Token
     }
     
-    func fetchAnimal (withAccessToken Token : String) async throws {
+    func fetchAnimal (_ completion: @escaping (allAnimal) -> Void, withAccessToken Token : String) async throws {
         let endPoint = "https://api.petfinder.com/v2/animals?type=dog&page=2"
         let method = "GET"
         guard let url = URL(string: endPoint) else {
             throw AppError.invailURL
         }
-        print(Token)
         
         var urlRequest = URLRequest(url: url)
         
@@ -66,7 +65,7 @@ struct petService {
             
             do {
                 let Animal = try decoder.decode(allAnimal.self, from: data)
-                print(Animal)
+                completion(Animal)
             }catch{
                 print(error)
             }

@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-   let service = petService()
+    @State
+    var animalArray: [Animals] = []
+    let service = petService()
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            
         }
         .onAppear{
             Task{
@@ -24,7 +26,12 @@ struct ContentView: View {
                let token = try await service.getAccessToken()
                let accessToken = token.accessToken
             
-                try await service.fetchAnimal(withAccessToken: accessToken)
+                try await service.fetchAnimal({
+                    (animals: allAnimal) in
+                    self.animalArray = animals.animals
+                    print(animalArray)
+                }, withAccessToken: accessToken
+                )
                 
                 }catch {
                     print("123")
