@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA93DB112AF84AD200CB6AB3 /* userPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93DB102AF84AD200CB6AB3 /* userPage.swift */; };
+		AA93DB132AF84D8700CB6AB3 /* toolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93DB122AF84D8700CB6AB3 /* toolBar.swift */; };
+		AAB284CC2AFDB26A00F96BFE /* homePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB284CB2AFDB26A00F96BFE /* homePage.swift */; };
+		AAB284CE2AFDB34100F96BFE /* searchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB284CD2AFDB34100F96BFE /* searchPage.swift */; };
+		AAB284D52AFDC82200F96BFE /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAB284D72AFDC82200F96BFE /* IndieFlower.ttf */; };
 		AACF0BEC2ADCBA360025BDD6 /* ApiAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */; };
 		AAF0C01F2AD8B2B5007E7254 /* petpetgoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0C01E2AD8B2B5007E7254 /* petpetgoApp.swift */; };
 		AAF0C0212AD8B2B5007E7254 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0C0202AD8B2B5007E7254 /* ContentView.swift */; };
@@ -18,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA93DB102AF84AD200CB6AB3 /* userPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPage.swift; sourceTree = "<group>"; };
+		AA93DB122AF84D8700CB6AB3 /* toolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolBar.swift; sourceTree = "<group>"; };
+		AAB284CB2AFDB26A00F96BFE /* homePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage.swift; sourceTree = "<group>"; };
+		AAB284CD2AFDB34100F96BFE /* searchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchPage.swift; sourceTree = "<group>"; };
+		AAB284D32AFDC53600F96BFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AAB284D82AFDC83800F96BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/IndieFlower.ttf; sourceTree = "<group>"; };
 		AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAnimal.swift; sourceTree = "<group>"; };
 		AAF0C01B2AD8B2B5007E7254 /* petpetgo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = petpetgo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF0C01E2AD8B2B5007E7254 /* petpetgoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petpetgoApp.swift; sourceTree = "<group>"; };
@@ -40,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAB284D02AFDC32700F96BFE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AAB284D72AFDC82200F96BFE /* IndieFlower.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AACF0BEA2ADCBA070025BDD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,11 +87,17 @@
 		AAF0C01D2AD8B2B5007E7254 /* petpetgo */ = {
 			isa = PBXGroup;
 			children = (
+				AAB284D32AFDC53600F96BFE /* Info.plist */,
+				AAB284D02AFDC32700F96BFE /* Font */,
 				AACF0BEA2ADCBA070025BDD6 /* Models */,
 				AAF0C02C2AD8B657007E7254 /* Constant */,
 				AAF0C01E2AD8B2B5007E7254 /* petpetgoApp.swift */,
 				AAF0C0202AD8B2B5007E7254 /* ContentView.swift */,
+				AAB284CD2AFDB34100F96BFE /* searchPage.swift */,
+				AAB284CB2AFDB26A00F96BFE /* homePage.swift */,
+				AA93DB122AF84D8700CB6AB3 /* toolBar.swift */,
 				AAF0C02F2AD8B88F007E7254 /* Service.swift */,
+				AA93DB102AF84AD200CB6AB3 /* userPage.swift */,
 				AAF0C0222AD8B2B9007E7254 /* Assets.xcassets */,
 				AAF0C0242AD8B2B9007E7254 /* Preview Content */,
 			);
@@ -155,6 +180,7 @@
 			files = (
 				AAF0C0262AD8B2B9007E7254 /* Preview Assets.xcassets in Resources */,
 				AAF0C0232AD8B2B9007E7254 /* Assets.xcassets in Resources */,
+				AAB284D52AFDC82200F96BFE /* IndieFlower.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,8 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB284CE2AFDB34100F96BFE /* searchPage.swift in Sources */,
+				AAB284CC2AFDB26A00F96BFE /* homePage.swift in Sources */,
 				AACF0BEC2ADCBA360025BDD6 /* ApiAnimal.swift in Sources */,
 				AAF0C0212AD8B2B5007E7254 /* ContentView.swift in Sources */,
+				AA93DB112AF84AD200CB6AB3 /* userPage.swift in Sources */,
+				AA93DB132AF84D8700CB6AB3 /* toolBar.swift in Sources */,
 				AAF0C0302AD8B88F007E7254 /* Service.swift in Sources */,
 				AAF0C01F2AD8B2B5007E7254 /* petpetgoApp.swift in Sources */,
 				AAF0C02E2AD8B66E007E7254 /* Constants.swift in Sources */,
@@ -175,6 +205,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAB284D72AFDC82200F96BFE /* IndieFlower.ttf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAB284D82AFDC83800F96BFE /* Base */,
+			);
+			name = IndieFlower.ttf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AAF0C0272AD8B2B9007E7254 /* Debug */ = {
@@ -307,11 +348,13 @@
 				DEVELOPMENT_TEAM = 6J7G2GC3TR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = petpetgo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,11 +379,13 @@
 				DEVELOPMENT_TEAM = 6J7G2GC3TR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = petpetgo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
