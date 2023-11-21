@@ -24,6 +24,13 @@ struct homePage: View {
     }
 }
 
-#Preview {
-    homePage(selectionTap: .constant(1))
+//#Preview {
+//    homePage(selectionTap: .constant(1))
+//}
+
+
+struct Previews_homePage_Previews: PreviewProvider {
+    static var previews: some View {
+        homePage(selectionTap: .constant(1))
+    }
 }

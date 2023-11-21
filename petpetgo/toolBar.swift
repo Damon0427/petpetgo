@@ -63,7 +63,15 @@ struct toolBar: View {
     }
 
 
-#Preview {
-    //added default value
-    toolBar(selectedIcon: .constant(.house))
+//#Preview {
+//    //added default value
+//    toolBar(selectedIcon: .constant(.house))
+//}
+
+
+
+struct Previews_toolBar_Previews: PreviewProvider {
+    static var previews: some View {
+        toolBar(selectedIcon: .constant(.house))
+    }
 }

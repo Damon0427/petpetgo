@@ -102,6 +102,14 @@ struct ContentView: View {
 func serviceCall () {
     
 }
-#Preview {
-    ContentView()
+
+//#Preview {
+//    ContentView()
+//}
+
+
+struct Previews_ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
