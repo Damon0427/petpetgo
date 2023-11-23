@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  petpetgo
-//
-//  Created by Zicheng Tan on 10/12/23.
-//
 
 import SwiftUI
 
