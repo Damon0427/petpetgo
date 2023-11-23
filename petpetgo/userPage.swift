@@ -11,8 +11,82 @@ struct userPage: View {
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            .ignoresSafeArea()
-            Text("Here is user page")
+                .ignoresSafeArea()
+            VStack {
+                        Image("profile_picture") // change photo here
+                            
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150)
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth: 4)
+                            )
+                            .shadow(radius: 10)
+                
+                        Text("Hi, Your Name") // name change here
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding(.top, 10)
+
+
+                        Divider()
+                            .padding(.vertical, 10)
+
+                // my info
+                Button(action: {
+                    print("Edit inforamtion")
+                }) {
+                    Text("Edit My Information")
+                        .fontWeight(.bold)
+                        .frame(width: 250, height: 20)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                }
+                
+                // my favorite
+                Button(action: {
+                    print("Favorite pets")
+                }) {
+                    Text("My Favorite")
+                        .fontWeight(.bold)
+                        .frame(width: 250, height: 20)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                }
+                
+                // help
+                Button(action: {
+                    print("help page")
+                }) {
+                    Text("Help")
+                        .fontWeight(.bold)
+                        .frame(width: 250, height: 20)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                }
+                
+                // setting
+                Button(action: {
+                    print("Edit setting")
+                }) {
+                    Text("Setting")
+                        .fontWeight(.bold)
+                        .frame(width: 250, height: 20)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                }
+                    
+                        Spacer()
+                    }
         }
         
     }
