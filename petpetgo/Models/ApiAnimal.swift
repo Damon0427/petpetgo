@@ -10,15 +10,24 @@ import Foundation
 struct allAnimal: Decodable{
     let animals:[Animals]
 }
-struct Animals :Decodable{
+struct Animals :Decodable,Identifiable{
     
     let id : Int
     let url: String
-    let type, species: String?
-    let age, gender, size: String?
+    let type, species: String
+    let age, gender, size: String
     let coat: String?
-    let tags: [String]?
-    let name, description : String?
+    let tags: [String]
+    let name: String
+    let description : String?
+    var photos: [Photo]
+}
+struct Photo: Decodable {
+    
+    var small: String
+    var medium: String
+    var large: String
+    var full: String
     
 }
 struct Breed : Decodable{

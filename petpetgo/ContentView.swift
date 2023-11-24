@@ -18,7 +18,8 @@ struct ContentView: View {
      
         
      }
-    
+    //passing the database to another page
+
     @State
     var animalArray: [Animals] = []
     
@@ -41,7 +42,7 @@ struct ContentView: View {
                         
                     }
                     .tag(0)
-                    searchPage()
+                    searchPage(animalArray: $animalArray)
                     .tabItem {
                         Image(systemName:"magnifyingglass")
                         Text("Search")
@@ -79,7 +80,6 @@ struct ContentView: View {
                 try await service.fetchAnimal({
                     (animals: allAnimal) in
                     self.animalArray = animals.animals
-                    print(animalArray[0])
                 }, withAccessToken: accessToken
                 )
                 

@@ -7,14 +7,18 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct userPage: View {
+    @State private var islogin = false
+    
+    
     var body: some View {
-        NavigationView{
-            
-            ZStack{
-                LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .ignoresSafeArea()
-                VStack {
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            VStack {
+                if islogin {
                     Image("profile_picture") // change photo here
                     
                         .resizable()
@@ -25,7 +29,7 @@ struct userPage: View {
                             Circle().stroke(Color.white, lineWidth: 4)
                         )
                         .shadow(radius: 10)
-                    
+                        .padding()
                     Text("Hi, Your Name") // name change here
                         .font(.title)
                         .fontWeight(.bold)
@@ -63,9 +67,9 @@ struct userPage: View {
                     
                     // help
                     Button(action: {
-                        print("Help Page")
+                        print("help page")
                     }) {
-                        NavigationLink("Help", destination: HelpView())
+                        Text("Help")
                             .fontWeight(.bold)
                             .frame(width: 250, height: 20)
                             .padding()
@@ -74,12 +78,23 @@ struct userPage: View {
                             .cornerRadius(10)
                     }
                     
-                    
                     // setting
                     Button(action: {
                         print("Edit setting")
                     }) {
-                        NavigationLink("Setting", destination: SettingPage())
+                        Text("Setting")
+                            .fontWeight(.bold)
+                            .frame(width: 250, height: 20)
+                            .padding()
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                    }
+                    // log out
+                    Button(action: {
+                        islogin = false
+                    }) {
+                        Text("Log out")
                             .fontWeight(.bold)
                             .frame(width: 250, height: 20)
                             .padding()
@@ -90,16 +105,18 @@ struct userPage: View {
                     
                     Spacer()
                 }
+                else {
+                    loginPage(islogin: $islogin)
+                }
             }
-            
         }
+        
     }
 }
 
 //#Preview {
 //    userPage()
 //}
-
 
 
 struct Previews_userPage_Previews: PreviewProvider {

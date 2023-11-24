@@ -3,16 +3,17 @@ import SwiftUI
 
 struct searchPage: View {
     @State private var searchText = ""
-    
+    @Binding var animalArray: [Animals]
+
     let recommendationTags = ["Cat", "Dog", "Male", "FeMale", "Rabbit", "Trained"]
 
-    let photos: [Photo] = [
-        Photo(name: "result 1", imageName: "result1"),
-        Photo(name: "result 2", imageName: "result2"),
-        Photo(name: "result 3", imageName: "result3"),
-        Photo(name: "result 4", imageName: "result4"),
-        Photo(name: "result 5", imageName: "result5"),
-        Photo(name: "result 6", imageName: "result6"),
+    let photos: [Photos] = [
+        Photos(name: "result 1", imageName: "result1"),
+        Photos(name: "result 2", imageName: "result2"),
+        Photos(name: "result 3", imageName: "result3"),
+        Photos(name: "result 4", imageName: "result4"),
+        Photos(name: "result 5", imageName: "result5"),
+        Photos(name: "result 6", imageName: "result6"),
         // Add more photos as needed
     ]
     
@@ -86,14 +87,14 @@ struct RecommendationTagView: View {
 }
 
 
-struct Photo: Identifiable {
+struct Photos: Identifiable {
     var id = UUID()
     var name: String
     var imageName: String
 }
 
 struct PhotoRow: View {
-    var photo: Photo
+    var photo: Photos
 
     var body: some View {
         
@@ -112,7 +113,7 @@ struct PhotoRow: View {
 }
 
 struct PhotoDetail: View {
-    var photo: Photo
+    var photo: Photos
     
     var body: some View {
         ZStack{
@@ -167,6 +168,6 @@ struct SearchBar: View {
 
 struct Previews_searchPage_Previews: PreviewProvider {
     static var previews: some View {
-        searchPage()
+    searchPage( animalArray: .constant([]))
     }
 }
