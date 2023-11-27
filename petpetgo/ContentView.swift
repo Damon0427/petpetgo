@@ -72,17 +72,24 @@ struct ContentView: View {
         }
         .onAppear{
             Task{
+                
             do{
+                let appear = UINavigationBarAppearance()
+                let atters: [NSAttributedString.Key: Any] = [
+                    .font: UIFont(name: "IndieFlower", size: 28)!
+                ]
+                appear.largeTitleTextAttributes = atters
+                appear.titleTextAttributes = atters
+                UINavigationBar.appearance().standardAppearance = appear
                 
                let token = try await service.getAccessToken()
                let accessToken = token.accessToken
-            
+                
                 try await service.fetchAnimal({
                     (animals: allAnimal) in
                     self.animalArray = animals.animals
                 }, withAccessToken: accessToken
                 )
-                
                 }catch {
                     print("123")
                 }

@@ -37,13 +37,13 @@ struct petService {
                 
         let Token =  try decoder.decode(Token.self, from: data)
         
-        print(Token)
         return Token
     }
     
     func fetchAnimal (_ completion: @escaping (allAnimal) -> Void, withAccessToken Token : String) async throws {
-        let endPoint = "https://api.petfinder.com/v2/animals?type=dog&page=2"
+        let endPoint = "https://api.petfinder.com/v2/animals"
         let method = "GET"
+        
         guard let url = URL(string: endPoint) else {
             throw AppError.invailURL
         }

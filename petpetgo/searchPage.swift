@@ -1,78 +1,89 @@
-
 import SwiftUI
 
 struct searchPage: View {
     @State private var searchText = ""
     @Binding var animalArray: [Animals]
 
-    let recommendationTags = ["Cat", "Dog", "Male", "FeMale", "Rabbit", "Trained"]
+    let recommendationTags = ["Cat", "Dog", "Male", "FeMale", "Trained"]
 
-    let photos: [Photos] = [
-        Photos(name: "result 1", imageName: "result1"),
-        Photos(name: "result 2", imageName: "result2"),
-        Photos(name: "result 3", imageName: "result3"),
-        Photos(name: "result 4", imageName: "result4"),
-        Photos(name: "result 5", imageName: "result5"),
-        Photos(name: "result 6", imageName: "result6"),
-        // Add more photos as needed
-    ]
-    
     var body: some View {
-            
-            NavigationView {
-                
-                VStack {
-                    
-                    Divider()
-                        .padding(.vertical, 10)
-                    
-                    HStack {
-//                        Button(action: {
-//                            // Handle back button action
-//                        }) {
-//                            Image(systemName: "chevron.left")
-//                                .imageScale(.large)
-//                                .padding(.leading, 8)
-//                        }
+        NavigationView {
+            VStack {
+                Divider()
+                    .padding(.vertical, 10)
 
-                        SearchBar(text: $searchText)
+                HStack {
+                    SearchBar(text: $searchText)
+                }
+                .padding(.horizontal)
 
-                    }
-                    
-                    .padding(.horizontal)
-                    
-
-                    // Recommendation Tags
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(recommendationTags, id: \.self) { tag in
-                                RecommendationTagView(tag: tag)
-                            }
+                // Recommendation Tags
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(recommendationTags, id: \.self) { tag in
+                            RecommendationTagView(tag: tag)
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                }
 
-                    // Search Results
-                    List(photos.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText) }) { photo in
-                        NavigationLink(destination: PhotoDetail(photo: photo)) {
-                            PhotoRow(photo: photo)
-                            
-                        }
+                // Search Results
+                List(animalArray.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText) }) { animal in
+                    NavigationLink(destination: AnimalDetailView(animal: animal)) {
+                        AnimalRow(animal: animal)
                     }
                 }
-                
-                .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .ignoresSafeArea())
-                .navigationBarHidden(true) // Hide default navigation bar
-                
             }
-        
+            .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea())
+            .navigationBarHidden(true) // Hide default navigation bar
         }
-        
     }
+}
 
+struct AnimalRow: View {
+    var animal: Animals
 
+    var body: some View {
+        HStack {
+            
+            AsyncImage(url: URL(string: animal.photos.first?.small ?? "")) { phase in
+                //check phase
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                case .empty:
+                    Image(systemName: "photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                case .failure(_):
+                    EmptyView()
+                @unknown default:
+                    EmptyView()
+                }
+            }
+
+            Text(animal.name)
+                .font(.headline)
+        }
+    }
+}
+
+struct AnimalDetailView: View {
+    let animal: Animals
+
+    var body: some View {
+        Text("Detail page")
+        .padding()
+    }
+}
 
 struct RecommendationTagView: View {
     var tag: String
@@ -86,61 +97,10 @@ struct RecommendationTagView: View {
     }
 }
 
-
-struct Photos: Identifiable {
-    var id = UUID()
-    var name: String
-    var imageName: String
-}
-
-struct PhotoRow: View {
-    var photo: Photos
-
-    var body: some View {
-        
-        HStack {
-            
-            Image(photo.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 50, height: 50)
-                .clipShape(Circle())
-
-            Text(photo.name)
-                .padding(.leading, 10)
-        }
-    }
-}
-
-struct PhotoDetail: View {
-    var photo: Photos
-    
-    var body: some View {
-        ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
-            VStack {
-                Image(photo.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding()
-                
-                Text(photo.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding()
-                
-                // Add more details or actions as needed
-            }
-            .navigationBarTitle(photo.name, displayMode: .inline)
-        }
-    }
-}
 struct SearchBar: View {
     @Binding var text: String
-    
+
     var body: some View {
-        
         HStack {
             TextField("Search...", text: $text)
                 .padding(8)
@@ -162,12 +122,8 @@ struct SearchBar: View {
     }
 }
 
-//#Preview {
-//    searchPage()
-//}
-
 struct Previews_searchPage_Previews: PreviewProvider {
     static var previews: some View {
-    searchPage( animalArray: .constant([]))
+        searchPage(animalArray: .constant([]))
     }
 }
