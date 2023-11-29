@@ -11,6 +11,7 @@ struct signUpPage: View {
     @State private var alertMessage = ""
     
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         ZStack {
@@ -50,7 +51,9 @@ struct signUpPage: View {
                         Button(action: {
                             //check the password, if it is valid, add it into array
                             if UserManager.shared.isPasswordValid(password: passWord){
-                                UserManager.shared.addUser(newUser: User(firstName: firstName, lastName: lastName, userName: userName, passWord: passWord, isLogIn: false))
+                                let newUser = User(firstName: firstName, lastName: lastName, userName: userName, passWord: passWord, isLogIn: false)
+                                UserManager.shared.addUser(newUser: newUser)
+                                userViewModel.setUser(user: newUser)
                                 
                                 print("Register success")
                                 

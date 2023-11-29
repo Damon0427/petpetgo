@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01BF39162B0F12DD00DD24B7 /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39152B0F12DD00DD24B7 /* HelpPage.swift */; };
 		01BF39182B0F1E6700DD24B7 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39172B0F1E6700DD24B7 /* SettingPage.swift */; };
+		01BF391F2B175E7C00DD24B7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF391E2B175E7C00DD24B7 /* UserViewModel.swift */; };
 		4E3F93542B10895E00FFA7EE /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93532B10895E00FFA7EE /* loginPage.swift */; };
 		4E3F93562B1089AE00FFA7EE /* signUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93552B1089AE00FFA7EE /* signUpPage.swift */; };
 		4E3F93582B108A7700FFA7EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93572B108A7700FFA7EE /* User.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		01BF39152B0F12DD00DD24B7 /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
 		01BF39172B0F1E6700DD24B7 /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
+		01BF391E2B175E7C00DD24B7 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		4E3F93532B10895E00FFA7EE /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		4E3F93552B1089AE00FFA7EE /* signUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpPage.swift; sourceTree = "<group>"; };
 		4E3F93572B108A7700FFA7EE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				AAF0C0312AD8CA72007E7254 /* AccessToken.swift */,
 				AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */,
 				4E3F93572B108A7700FFA7EE /* User.swift */,
+				01BF391E2B175E7C00DD24B7 /* UserViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				4E3F93562B1089AE00FFA7EE /* signUpPage.swift in Sources */,
 				AAF0C02E2AD8B66E007E7254 /* Constants.swift in Sources */,
 				AAF0C0322AD8CA72007E7254 /* AccessToken.swift in Sources */,
+				01BF391F2B175E7C00DD24B7 /* UserViewModel.swift in Sources */,
 				01BF39182B0F1E6700DD24B7 /* SettingPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

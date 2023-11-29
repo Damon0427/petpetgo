@@ -8,10 +8,15 @@
 import SwiftUI
 
 @main
+
+
 struct petpetgoApp: App {
+    @StateObject private var userViewModel = UserViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userViewModel)
         }
     }
 }
