@@ -3,10 +3,11 @@ import SwiftUI
 struct searchPage: View {
     @State private var searchText = ""
     @Binding var animalArray: [Animals]
+    @State private var selectedTypeFilter: String = "All"
+    @State private var selectedGenderFilter: String = "All"
     
-    
-    
-    let recommendationTags = ["Cat", "Dog", "Male", "Female"]
+    let recommendationTypeTags = ["All", "Cat", "Dog"]
+    let recommendationGenderTags = ["All", "Male", "Female"]
     
     var body: some View {
         NavigationView {
@@ -19,30 +20,50 @@ struct searchPage: View {
                 }
                 .padding(.horizontal)
                 
-                // Recommendation Tags
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        ForEach(recommendationTags, id: \.self) { tag in
-                            RecommendationTagView(tag: tag)
+                // Animal type and gender filter
+                HStack(spacing: 16) {
+                    Picker("Type", selection: $selectedTypeFilter) {
+                        ForEach(recommendationTypeTags, id: \.self) { tag in
+                            Text(tag).tag(tag)
                         }
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    Picker("Gender", selection: $selectedGenderFilter) {
+                        ForEach(recommendationGenderTags, id: \.self) { tag in
+                            Text(tag).tag(tag)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                 }
+                .padding()
                 
                 // Search Results
-                List(animalArray.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText) }) { animal in
+                List(filteredAnimals) { animal in
                     NavigationLink(destination: AnimalDetailView(animal: animal)) {
                         AnimalRow(animal: animal)
                     }
                 }
+                .listStyle(PlainListStyle()) // remove default List styling
             }
             .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea())
             .navigationBarHidden(true) // Hide default navigation bar
         }
     }
+    
+    // Computed filter animals based on the selection from user
+    var filteredAnimals: [Animals] {
+        animalArray.filter { animal in
+            let typeCondition = selectedTypeFilter == "All" || animal.type == selectedTypeFilter
+            let genderCondition = selectedGenderFilter == "All" || animal.gender == selectedGenderFilter
+            let searchCondition = searchText.isEmpty || animal.name.localizedCaseInsensitiveContains(searchText)
+            return typeCondition && genderCondition && searchCondition
+        }
+    }
 }
+
+
 
 
 
@@ -83,7 +104,7 @@ struct AnimalRow: View {
 
 struct AnimalDetailView: View {
     let animal: Animals
-
+    
     
     var body: some View {
         ZStack{
@@ -98,12 +119,12 @@ struct AnimalDetailView: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 200) // Adjust the height as needed
+                            .frame(height: 200) // change the height as needed
                     case .empty:
                         Image(systemName: "photo")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 200) // Adjust the height as needed
+                            .frame(height: 200) // change the height as needed
                     case .failure(_):
                         EmptyView()
                     @unknown default:
@@ -113,6 +134,7 @@ struct AnimalDetailView: View {
                 .padding()
                 
                 
+                // Display animal information
                 Text("Name: \(animal.name)")
                     .font(.headline)
                 Text("Age: \(animal.age)")
@@ -123,34 +145,34 @@ struct AnimalDetailView: View {
                     .font(.headline)
                 Text("Size: \(animal.size)")
                     .font(.headline)
-     
+                
                 
                 
                 // Display color information
                 if let animalColor = animal.colors?.primary {
                     Text("Color: \(animalColor)")
                         .font(.headline)
-                        
+                    
                     if let secondaryColor = animal.colors?.secondary {
                         Text("Secondary Color: \(secondaryColor)")
                             .font(.headline)
-                            
+                        
                     }
                     if let tertiaryColor = animal.colors?.tertiary {
                         Text("Tertiary Color: \(tertiaryColor)")
                             .font(.headline)
-                            
+                        
                     }
                 }
                 
-                // Display color information
+                // Display breed information
                 if let animalBreed = animal.breeds?.primary {
                     Text("Breed: \(animalBreed)")
                         .font(.headline)
                     if let secondaryBreed = animal.breeds?.secondary {
                         Text("Secondary Breed: \(secondaryBreed)")
                             .font(.headline)
-                            
+                        
                     }
                     
                     if let mix = animal.breeds?.mixed {
@@ -172,17 +194,6 @@ struct AnimalDetailView: View {
     }
 }
 
-struct RecommendationTagView: View {
-    var tag: String
-    
-    var body: some View {
-        Text(tag)
-            .padding()
-            .background(Color.white)
-            .foregroundColor(.black)
-            .cornerRadius(10)
-    }
-}
 
 struct SearchBar: View {
     @Binding var text: String
