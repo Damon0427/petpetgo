@@ -10,6 +10,8 @@ struct signUpPage: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack {
             
@@ -51,6 +53,8 @@ struct signUpPage: View {
                                 UserManager.shared.addUser(newUser: User(firstName: firstName, lastName: lastName, userName: userName, passWord: passWord, isLogIn: false))
                                 
                                 print("Register success")
+                                
+                                presentationMode.wrappedValue.dismiss()
                                 
                             }else {
                                 
