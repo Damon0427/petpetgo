@@ -3,20 +3,20 @@ import SwiftUI
 struct searchPage: View {
     @State private var searchText = ""
     @Binding var animalArray: [Animals]
-
-    let recommendationTags = ["Cat", "Dog", "Male", "FeMale", "Trained"]
-
+    
+    let recommendationTags = ["Cat", "Dog", "Male", "Female", "Trained"]
+    
     var body: some View {
         NavigationView {
             VStack {
                 Divider()
                     .padding(.vertical, 10)
-
+                
                 HStack {
                     SearchBar(text: $searchText)
                 }
                 .padding(.horizontal)
-
+                
                 // Recommendation Tags
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
@@ -27,7 +27,7 @@ struct searchPage: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                 }
-
+                
                 // Search Results
                 List(animalArray.filter { searchText.isEmpty || $0.name.localizedCaseInsensitiveContains(searchText) }) { animal in
                     NavigationLink(destination: AnimalDetailView(animal: animal)) {
@@ -42,9 +42,11 @@ struct searchPage: View {
     }
 }
 
+
+
 struct AnimalRow: View {
     var animal: Animals
-
+    
     var body: some View {
         HStack {
             
@@ -69,25 +71,83 @@ struct AnimalRow: View {
                     EmptyView()
                 }
             }
-
+            
             Text(animal.name)
                 .font(.headline)
         }
     }
 }
 
+
 struct AnimalDetailView: View {
     let animal: Animals
 
+    
     var body: some View {
-        Text("Detail page")
-        .padding()
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            
+            VStack {
+                AsyncImage(url: URL(string: animal.photos.first?.full ?? "")) { phase in
+                    // Check phase
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 200) // Adjust the height as needed
+                    case .empty:
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 200) // Adjust the height as needed
+                    case .failure(_):
+                        EmptyView()
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+                .padding()
+                
+                
+                Text("Name: \(animal.name)")
+                    .font(.headline)
+                Text("Age: \(animal.age)")
+                    .font(.headline)
+                Text("Type: \(animal.type)")
+                    .font(.headline)
+                Text("Gender: \(animal.gender)")
+                    .font(.headline)
+                Text("Size: \(animal.size)")
+                    .font(.headline)
+                
+//                // Display color information
+//                if let animalColor = animal.color {
+//                    Text("Color: \(animalColor.primary)")
+//                        .padding()
+//                    if let secondaryColor = animalColor.secondary {
+//                        Text("Secondary Color: \(secondaryColor)")
+//                            .padding()
+//                    }
+//                    if let tertiaryColor = animalColor.tertiary {
+//                        Text("Tertiary Color: \(tertiaryColor)")
+//                            .padding()
+//                    }
+//                }
+                
+                
+                
+                Text("Description: \(animal.description ?? "")")
+                    .padding()
+            }
+        }
     }
 }
 
 struct RecommendationTagView: View {
     var tag: String
-
+    
     var body: some View {
         Text(tag)
             .padding()
@@ -99,7 +159,7 @@ struct RecommendationTagView: View {
 
 struct SearchBar: View {
     @Binding var text: String
-
+    
     var body: some View {
         HStack {
             TextField("Search...", text: $text)
@@ -109,7 +169,7 @@ struct SearchBar: View {
                 .padding(.trailing, 4)
                 .padding(.leading, 8)
                 .foregroundColor(.primary)
-
+            
             Button(action: {
                 // Handle search action
             }) {

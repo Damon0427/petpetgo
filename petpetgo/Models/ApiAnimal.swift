@@ -10,6 +10,12 @@ import Foundation
 struct allAnimal: Decodable{
     let animals:[Animals]
 }
+//struct allBreed: Decodable{
+//    let breeds:[Breed]
+//}
+//struct allColor: Decodable{
+//    let colors:[color]
+//}
 struct Animals :Decodable,Identifiable{
     
     let id : Int
@@ -21,6 +27,7 @@ struct Animals :Decodable,Identifiable{
     let name: String
     let description : String?
     var photos: [Photo]
+
 }
 struct Photo: Decodable {
     

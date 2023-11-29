@@ -30,11 +30,11 @@ struct petService {
               httpResponse.statusCode == 200 else {
             throw AppError.invailHttpResponse
         }
-  
+        
         let decoder = JSONDecoder()
-
+        
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-                
+        
         let Token =  try decoder.decode(Token.self, from: data)
         
         return Token
@@ -71,10 +71,76 @@ struct petService {
             }
             
         }).resume()
-                                   
         
-        
-        
+        func fetchBreed (_ completion: @escaping (Breed) -> Void, withAccessToken Token : String) async throws {
+            let endPoint = "https://api.petfinder.com/v2/types/name/breeds"
+            let method = "GET"
+            
+            guard let url = URL(string: endPoint) else {
+                throw AppError.invailURL
+            }
+            
+            var urlRequest = URLRequest(url: url)
+            
+            urlRequest.httpMethod = method
+            
+            urlRequest.setValue("Bearer \(Token)" , forHTTPHeaderField: "Authorization")
+            
+            URLSession.shared.dataTask(with: urlRequest, completionHandler: { (maybeData: Data?, maybeReponse: URLResponse?,maybeError: Error?) -> Void in
+                
+                guard let data = maybeData else {
+                    print("fail to get data")
+                    return
+                }
+                
+                let decoder = JSONDecoder()
+                
+                do {
+                    let Breed1 = try decoder.decode(Breed.self, from: data)
+                    completion(Breed1)
+                }catch{
+                    print(error)
+                }
+                
+            }).resume()
+            
+            func fetchColor (_ completion: @escaping (color) -> Void, withAccessToken Token : String) async throws {
+                let endPoint = "https://api.petfinder.com/v2/types/colors"
+                let method = "GET"
+                
+                guard let url = URL(string: endPoint) else {
+                    throw AppError.invailURL
+                }
+                
+                var urlRequest = URLRequest(url: url)
+                
+                urlRequest.httpMethod = method
+                
+                urlRequest.setValue("Bearer \(Token)" , forHTTPHeaderField: "Authorization")
+                
+                URLSession.shared.dataTask(with: urlRequest, completionHandler: { (maybeData: Data?, maybeReponse: URLResponse?,maybeError: Error?) -> Void in
+                    
+                    guard let data = maybeData else {
+                        print("fail to get data")
+                        return
+                    }
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let colors1 = try decoder.decode(color.self, from: data)
+                        completion(colors1)
+                    }catch{
+                        print(error)
+                    }
+                    
+                }).resume()
+                
+                
+                
+                
+            }
+            
+        }
     }
-    
 }
