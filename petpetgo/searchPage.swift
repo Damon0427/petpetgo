@@ -4,7 +4,9 @@ struct searchPage: View {
     @State private var searchText = ""
     @Binding var animalArray: [Animals]
     
-    let recommendationTags = ["Cat", "Dog", "Male", "Female", "Trained"]
+    
+    
+    let recommendationTags = ["Cat", "Dog", "Male", "Female"]
     
     var body: some View {
         NavigationView {
@@ -121,21 +123,46 @@ struct AnimalDetailView: View {
                     .font(.headline)
                 Text("Size: \(animal.size)")
                     .font(.headline)
+     
                 
-//                // Display color information
-//                if let animalColor = animal.color {
-//                    Text("Color: \(animalColor.primary)")
-//                        .padding()
-//                    if let secondaryColor = animalColor.secondary {
-//                        Text("Secondary Color: \(secondaryColor)")
-//                            .padding()
-//                    }
-//                    if let tertiaryColor = animalColor.tertiary {
-//                        Text("Tertiary Color: \(tertiaryColor)")
-//                            .padding()
-//                    }
-//                }
                 
+                // Display color information
+                if let animalColor = animal.colors?.primary {
+                    Text("Color: \(animalColor)")
+                        .font(.headline)
+                        
+                    if let secondaryColor = animal.colors?.secondary {
+                        Text("Secondary Color: \(secondaryColor)")
+                            .font(.headline)
+                            
+                    }
+                    if let tertiaryColor = animal.colors?.tertiary {
+                        Text("Tertiary Color: \(tertiaryColor)")
+                            .font(.headline)
+                            
+                    }
+                }
+                
+                // Display color information
+                if let animalBreed = animal.breeds?.primary {
+                    Text("Breed: \(animalBreed)")
+                        .font(.headline)
+                    if let secondaryBreed = animal.breeds?.secondary {
+                        Text("Secondary Breed: \(secondaryBreed)")
+                            .font(.headline)
+                            
+                    }
+                    
+                    if let mix = animal.breeds?.mixed {
+                        if mix == true {
+                            Text("Breed Mixed")
+                                .font(.headline)
+                        } else {
+                            Text("No Breed Mixed")
+                                .font(.headline)
+                        }
+                    }
+                }
                 
                 
                 Text("Description: \(animal.description ?? "")")

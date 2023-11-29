@@ -11,6 +11,7 @@ import SwiftUI
 
 
 struct petpetgoApp: App {
+    //manage the current user's data and shares it across different views
     @StateObject private var userViewModel = UserViewModel()
     
     var body: some Scene {

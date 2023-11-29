@@ -27,6 +27,8 @@ struct Animals :Decodable,Identifiable{
     let name: String
     let description : String?
     var photos: [Photo]
+    let breeds: Breed?
+    let colors: color?
 
 }
 struct Photo: Decodable {
@@ -38,14 +40,14 @@ struct Photo: Decodable {
     
 }
 struct Breed : Decodable{
-    let primary: String
+    let primary: String?
     let secondary: String?
     let mixed: Bool
     let unknown: Bool
 }
 
 struct color : Decodable {
-    let primary: String
+    let primary: String?
     let secondary: String?
     let tertiary: String?
 }

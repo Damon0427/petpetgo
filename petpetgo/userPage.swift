@@ -31,7 +31,9 @@ struct userPage: View {
                         )
                         .shadow(radius: 10)
                         .padding()
-                    Text("Hi, \(userViewModel.currentUser?.firstName ?? "") \(userViewModel.currentUser?.lastName ?? "")") // name change here
+                    
+                    //updating user first and last name
+                    Text("Hi, \(userViewModel.currentUser?.firstName ?? "") \(userViewModel.currentUser?.lastName ?? "")")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.top, 10)
