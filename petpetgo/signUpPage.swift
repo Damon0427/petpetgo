@@ -9,9 +9,8 @@ struct signUpPage: View {
     @State private var confirmPassword = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
-    
+    @StateObject var vm = coreDataviewModel()
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         ZStack {
@@ -50,10 +49,11 @@ struct signUpPage: View {
                         
                         Button(action: {
                             //check the password, if it is valid, add it into array
-                            if UserManager.shared.isPasswordValid(password: passWord){
-                                let newUser = User(firstName: firstName, lastName: lastName, userName: userName, passWord: passWord, isLogIn: false)
-                                UserManager.shared.addUser(newUser: newUser)
-                                userViewModel.setUser(user: newUser)
+                            
+                            print("register")
+                            if vm.isPasswordValid(password: passWord){
+                                
+                                vm.addUser(userName: userName, passWord: passWord)
                                 
                                 print("Register success")
                                 
@@ -85,10 +85,18 @@ struct signUpPage: View {
         .alert(isPresented: $showAlert) {
                     Alert(title: Text("Fail to register"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                 }
+    //use to check the core data for registered user
+//        List{
+//            ForEach(vm.saveEntities){
+//                entity in
+//                Text(entity.username ?? "No name")
+//            }
+//        }
             }
-    func addUser() {
-    
-        }
+
+}
+#Preview {
+    signUpPage()
 }
 
 

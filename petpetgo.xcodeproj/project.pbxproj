@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		01BF39162B0F12DD00DD24B7 /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39152B0F12DD00DD24B7 /* HelpPage.swift */; };
 		01BF39182B0F1E6700DD24B7 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39172B0F1E6700DD24B7 /* SettingPage.swift */; };
-		01BF391F2B175E7C00DD24B7 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF391E2B175E7C00DD24B7 /* UserViewModel.swift */; };
 		4E3F93542B10895E00FFA7EE /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93532B10895E00FFA7EE /* loginPage.swift */; };
 		4E3F93562B1089AE00FFA7EE /* signUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93552B1089AE00FFA7EE /* signUpPage.swift */; };
-		4E3F93582B108A7700FFA7EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93572B108A7700FFA7EE /* User.swift */; };
+		AA0EC5CB2B1A6EEA005E960F /* userCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA0EC5C92B1A6EEA005E960F /* userCoreData.xcdatamodeld */; };
+		AA0EC5D32B1A71E0005E960F /* coreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EC5D22B1A71E0005E960F /* coreDataViewModel.swift */; };
+		AA0EC5DB2B1BB976005E960F /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0EC5DA2B1BB976005E960F /* ContactUsView.swift */; };
 		AA93DB112AF84AD200CB6AB3 /* userPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93DB102AF84AD200CB6AB3 /* userPage.swift */; };
 		AAB284CC2AFDB26A00F96BFE /* homePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB284CB2AFDB26A00F96BFE /* homePage.swift */; };
 		AAB284CE2AFDB34100F96BFE /* searchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB284CD2AFDB34100F96BFE /* searchPage.swift */; };
@@ -30,10 +31,11 @@
 /* Begin PBXFileReference section */
 		01BF39152B0F12DD00DD24B7 /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
 		01BF39172B0F1E6700DD24B7 /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
-		01BF391E2B175E7C00DD24B7 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		4E3F93532B10895E00FFA7EE /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		4E3F93552B1089AE00FFA7EE /* signUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpPage.swift; sourceTree = "<group>"; };
-		4E3F93572B108A7700FFA7EE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AA0EC5CA2B1A6EEA005E960F /* userCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = userCoreData.xcdatamodel; sourceTree = "<group>"; };
+		AA0EC5D22B1A71E0005E960F /* coreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataViewModel.swift; sourceTree = "<group>"; };
+		AA0EC5DA2B1BB976005E960F /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		AA93DB102AF84AD200CB6AB3 /* userPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPage.swift; sourceTree = "<group>"; };
 		AAB284CB2AFDB26A00F96BFE /* homePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePage.swift; sourceTree = "<group>"; };
 		AAB284CD2AFDB34100F96BFE /* searchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchPage.swift; sourceTree = "<group>"; };
@@ -83,8 +85,8 @@
 			children = (
 				AAF0C0312AD8CA72007E7254 /* AccessToken.swift */,
 				AACF0BEB2ADCBA360025BDD6 /* ApiAnimal.swift */,
-				4E3F93572B108A7700FFA7EE /* User.swift */,
-				01BF391E2B175E7C00DD24B7 /* UserViewModel.swift */,
+				AA0EC5C92B1A6EEA005E960F /* userCoreData.xcdatamodeld */,
+				AA0EC5D22B1A71E0005E960F /* coreDataViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +120,7 @@
 				AAB284CD2AFDB34100F96BFE /* searchPage.swift */,
 				4E3F93532B10895E00FFA7EE /* loginPage.swift */,
 				AAB284CB2AFDB26A00F96BFE /* homePage.swift */,
+				AA0EC5DA2B1BB976005E960F /* ContactUsView.swift */,
 				AAF0C02F2AD8B88F007E7254 /* Service.swift */,
 				4E3F93552B1089AE00FFA7EE /* signUpPage.swift */,
 				AA93DB102AF84AD200CB6AB3 /* userPage.swift */,
@@ -216,18 +219,19 @@
 			files = (
 				AAB284CE2AFDB34100F96BFE /* searchPage.swift in Sources */,
 				01BF39162B0F12DD00DD24B7 /* HelpPage.swift in Sources */,
+				AA0EC5D32B1A71E0005E960F /* coreDataViewModel.swift in Sources */,
 				AAB284CC2AFDB26A00F96BFE /* homePage.swift in Sources */,
 				AACF0BEC2ADCBA360025BDD6 /* ApiAnimal.swift in Sources */,
 				AAF0C0212AD8B2B5007E7254 /* ContentView.swift in Sources */,
 				AA93DB112AF84AD200CB6AB3 /* userPage.swift in Sources */,
-				4E3F93582B108A7700FFA7EE /* User.swift in Sources */,
 				AAF0C0302AD8B88F007E7254 /* Service.swift in Sources */,
+				AA0EC5CB2B1A6EEA005E960F /* userCoreData.xcdatamodeld in Sources */,
 				4E3F93542B10895E00FFA7EE /* loginPage.swift in Sources */,
 				AAF0C01F2AD8B2B5007E7254 /* petpetgoApp.swift in Sources */,
 				4E3F93562B1089AE00FFA7EE /* signUpPage.swift in Sources */,
 				AAF0C02E2AD8B66E007E7254 /* Constants.swift in Sources */,
+				AA0EC5DB2B1BB976005E960F /* ContactUsView.swift in Sources */,
 				AAF0C0322AD8CA72007E7254 /* AccessToken.swift in Sources */,
-				01BF391F2B175E7C00DD24B7 /* UserViewModel.swift in Sources */,
 				01BF39182B0F1E6700DD24B7 /* SettingPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +453,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA0EC5C92B1A6EEA005E960F /* userCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA0EC5CA2B1A6EEA005E960F /* userCoreData.xcdatamodel */,
+			);
+			currentVersion = AA0EC5CA2B1A6EEA005E960F /* userCoreData.xcdatamodel */;
+			path = userCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AAF0C0132AD8B2B4007E7254 /* Project object */;
 }

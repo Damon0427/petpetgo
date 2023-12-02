@@ -11,7 +11,7 @@ import SwiftUI
 
 struct userPage: View {
     @State private var islogin = false
-    @EnvironmentObject var userViewModel: UserViewModel
+//    @EnvironmentObject var userViewModel: UserViewModel
     
     
     var body: some View {
@@ -37,7 +37,7 @@ struct userPage: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.top, 10)
-                        Text("\(userViewModel.currentUser?.firstName ?? "") \(userViewModel.currentUser?.lastName ?? "")")
+                        Text("abc")
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.top, 10)

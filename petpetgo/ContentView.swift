@@ -35,7 +35,7 @@ struct ContentView: View {
             NavigationStack {
                 
                 TabView(selection: $selectedTab){
-                    homePage(selectionTap: $selectedTab)
+                    homePage(selectedTap: $selectedTab)
                     .tabItem {
                         Image(systemName: "house")
                         Text("Home")

@@ -7,7 +7,8 @@ struct loginPage: View {
     @Binding var islogin: Bool
     @State private var showAlert = false
     @State private var alertMessage = ""
-    
+    @StateObject var vm = coreDataviewModel()
+
     var body: some View {
         VStack {
             Text ("Login    \(Image(systemName:"person"))")
@@ -25,7 +26,8 @@ struct loginPage: View {
                 .padding(.horizontal)
             Button {
                 
-                if(UserManager.shared.isValidLogin(username: username, password: password)){
+                print("logging")
+                if(vm.isValidLogin(username: username, password: password)){
                     print("login success")
                     //set back to the user page if it is login
                     islogin = true
@@ -61,6 +63,5 @@ struct loginPage: View {
             Alert(title: Text("Fail to login"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                         }
     }
-    
 }
 
