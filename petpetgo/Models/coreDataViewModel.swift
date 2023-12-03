@@ -47,12 +47,23 @@ class coreDataviewModel: ObservableObject {
         saveData()
     }
     
-//    func updateUser(entity: UserEntity) {
-//        let currentFristName = entity.firstname ?? ""
-//        let newFristName = currentFristName
-//        entity.firstname = newFristName
-//        saveData()
-//    }
+    // update user first name
+    func updateFirstName(entity: UserEntity, newFirstName: String) {
+        entity.firstname = newFirstName
+        saveData()
+    }
+    
+    // update user last name
+    func updateLastName(entity: UserEntity, newLastName: String) {
+        entity.lastname = newLastName
+        saveData()
+    }
+    
+    //update user password
+    func updatePassword(entity: UserEntity, newPassword: String) {
+        entity.password = newPassword
+        saveData()
+    }
     
     func saveData () {
         do{
@@ -76,5 +87,5 @@ class coreDataviewModel: ObservableObject {
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*[0-9]).{8,}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
     }
-
+    
 }

@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct HelpView: View {
+struct HelpPage: View {
     var body: some View {
         VStack {
             Text("Welcome to the Help Page!")
@@ -21,8 +21,9 @@ struct HelpView: View {
     }
 }
 
-struct HelpView_Previews: PreviewProvider {
+
+struct Previews_HelpPage_Previews: PreviewProvider {
     static var previews: some View {
-        HelpView()
+        HelpPage()
     }
 }

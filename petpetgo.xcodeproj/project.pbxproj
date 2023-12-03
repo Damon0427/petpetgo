@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01BF39162B0F12DD00DD24B7 /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39152B0F12DD00DD24B7 /* HelpPage.swift */; };
 		01BF39182B0F1E6700DD24B7 /* SettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39172B0F1E6700DD24B7 /* SettingPage.swift */; };
+		01BF39252B1C592700DD24B7 /* EditInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39242B1C592700DD24B7 /* EditInfoPage.swift */; };
+		01BF39272B1C5E1700DD24B7 /* userFavoritePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BF39262B1C5E1700DD24B7 /* userFavoritePage.swift */; };
 		4E3F93542B10895E00FFA7EE /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93532B10895E00FFA7EE /* loginPage.swift */; };
 		4E3F93562B1089AE00FFA7EE /* signUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F93552B1089AE00FFA7EE /* signUpPage.swift */; };
 		AA0EC5CB2B1A6EEA005E960F /* userCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA0EC5C92B1A6EEA005E960F /* userCoreData.xcdatamodeld */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		01BF39152B0F12DD00DD24B7 /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
 		01BF39172B0F1E6700DD24B7 /* SettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPage.swift; sourceTree = "<group>"; };
+		01BF39242B1C592700DD24B7 /* EditInfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoPage.swift; sourceTree = "<group>"; };
+		01BF39262B1C5E1700DD24B7 /* userFavoritePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFavoritePage.swift; sourceTree = "<group>"; };
 		4E3F93532B10895E00FFA7EE /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		4E3F93552B1089AE00FFA7EE /* signUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpPage.swift; sourceTree = "<group>"; };
 		AA0EC5CA2B1A6EEA005E960F /* userCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = userCoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				01BF39172B0F1E6700DD24B7 /* SettingPage.swift */,
+				01BF39242B1C592700DD24B7 /* EditInfoPage.swift */,
+				01BF39262B1C5E1700DD24B7 /* userFavoritePage.swift */,
 				01BF39152B0F12DD00DD24B7 /* HelpPage.swift */,
 			);
 			path = Profile;
@@ -230,9 +236,11 @@
 				AAF0C01F2AD8B2B5007E7254 /* petpetgoApp.swift in Sources */,
 				4E3F93562B1089AE00FFA7EE /* signUpPage.swift in Sources */,
 				AAF0C02E2AD8B66E007E7254 /* Constants.swift in Sources */,
+				01BF39272B1C5E1700DD24B7 /* userFavoritePage.swift in Sources */,
 				AA0EC5DB2B1BB976005E960F /* ContactUsView.swift in Sources */,
 				AAF0C0322AD8CA72007E7254 /* AccessToken.swift in Sources */,
 				01BF39182B0F1E6700DD24B7 /* SettingPage.swift in Sources */,
+				01BF39252B1C592700DD24B7 /* EditInfoPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
