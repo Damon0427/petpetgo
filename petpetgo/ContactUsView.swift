@@ -47,6 +47,12 @@ struct ContactUsView: View {
     }
 }
 
-#Preview {
-    ContactUsView(isPresented: .constant(true))
+//#Preview {
+//    ContactUsView(isPresented: .constant(true))
+//}
+
+struct Previews_ContactUsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContactUsView(isPresented: .constant(true))
+    }
 }

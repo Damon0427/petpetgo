@@ -79,7 +79,7 @@ struct homePage: View {
                     Text("Contact us!")
                         .font(.title2)
                         .frame(width: 240,height: 50)
-                        .background(Color.yellow1)
+                        .background(Color.yellow)
                         .foregroundStyle(Color.black)
                         .cornerRadius(10)
                         .shadow(radius: 10)

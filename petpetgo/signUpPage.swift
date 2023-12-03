@@ -95,8 +95,14 @@ struct signUpPage: View {
             }
 
 }
-#Preview {
-    signUpPage()
+//#Preview {
+//    signUpPage()
+//}
+
+
+
+struct Previews_signUpPage_Previews: PreviewProvider {
+    static var previews: some View {
+        signUpPage()
+    }
 }
-
-
