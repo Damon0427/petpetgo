@@ -53,7 +53,7 @@ struct signUpPage: View {
                             print("register")
                             if vm.isPasswordValid(password: passWord){
                                 
-                                vm.addUser(userName: userName, passWord: passWord)
+                                vm.addUser(userName: userName, passWord: passWord, firstName: firstName, lastName: lastName)
                                 
                                 print("Register success")
                                 
@@ -85,13 +85,31 @@ struct signUpPage: View {
         .alert(isPresented: $showAlert) {
                     Alert(title: Text("Fail to register"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                 }
+        
     //use to check the core data for registered user
-//        List{
-//            ForEach(vm.saveEntities){
-//                entity in
-//                Text(entity.username ?? "No name")
-//            }
-//        }
+        List{
+            ForEach(vm.saveEntities){
+                entity in
+                
+                HStack{
+                    Text("user:")
+                    Text(entity.username ?? "No name")
+                    Text("password:")
+                    Text(entity.password ?? "No password")
+                }
+
+                HStack{
+                    Text("FN:")
+                    Text(entity.firstname ?? "No first name")
+                    Text("LN:")
+                    Text(entity.lastname ?? "No last name")
+                }
+            }
+            .onDelete(perform: vm.deleteUser)
+
+        }
+        
+        
             }
 
 }

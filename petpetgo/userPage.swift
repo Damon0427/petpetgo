@@ -1,17 +1,11 @@
-//
-//  userPage.swift
-//  petpetgo
-//
-//  Created by Zicheng Tan on 11/5/23.
-//
 
-import SwiftUI
 
 import SwiftUI
 
 struct userPage: View {
     @State private var islogin = false
 //    @EnvironmentObject var userViewModel: UserViewModel
+    @StateObject var vm = coreDataviewModel()
     
     
     var body: some View {
@@ -32,16 +26,22 @@ struct userPage: View {
                         .shadow(radius: 10)
                         .padding()
                     
-                    HStack{
-                        Text("Hi, ")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.top, 10)
-                        Text("abc")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.top, 10)
-                            .underline()
+                    ForEach(vm.saveEntities) {
+                        entity in
+                        
+                        HStack{
+                            Text("Hi, ")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.top, 10)
+                            
+                            
+                            Text(" \(entity.firstname ?? "") \(entity.lastname ?? "") ")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.top, 10)
+                                .underline()
+                        }
                     }
                     Divider()
                         .padding(.vertical, 10)

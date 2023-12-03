@@ -1,9 +1,4 @@
-//
-//  coreDataViewModel.swift
-//  petpetgo
-//
-//  Created by Zicheng Tan on 12/1/23.
-//
+
 
 import Foundation
 import CoreData
@@ -34,14 +29,30 @@ class coreDataviewModel: ObservableObject {
             print("Error fetching \(error)")
         }
     }
-    func addUser (userName: String,passWord: String){
+    func addUser (userName: String, passWord: String, firstName: String, lastName: String){
         let newUser = UserEntity(context: container.viewContext)
         
         newUser.username = userName
         newUser.password = passWord
+        newUser.firstname = firstName
+        newUser.lastname = lastName
         print("added user success")
         saveData()
     }
+    
+    func deleteUser(indexSet: IndexSet){
+        guard let index = indexSet.first else { return }
+        let entity = saveEntities[index]
+        container.viewContext.delete(entity)
+        saveData()
+    }
+    
+//    func updateUser(entity: UserEntity) {
+//        let currentFristName = entity.firstname ?? ""
+//        let newFristName = currentFristName
+//        entity.firstname = newFristName
+//        saveData()
+//    }
     
     func saveData () {
         do{
@@ -55,7 +66,7 @@ class coreDataviewModel: ObservableObject {
     
     func isValidLogin(username: String, password: String) -> Bool {
         for entity in saveEntities {
-            if entity.username == username && entity.password == password {
+            if entity.username == username && entity.password == password{
                 return true
             }
         }

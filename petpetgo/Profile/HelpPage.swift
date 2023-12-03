@@ -1,11 +1,4 @@
-//
-//  HelpPage.swift
-//  petpetgo
-//
-//  Created by Jiaming Zhao on 11/22/23.
-//
 
-//import Foundation
 
 import SwiftUI
 

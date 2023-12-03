@@ -1,9 +1,4 @@
-//
-//  ContactUsView.swift
-//  petpetgo
-//
-//  Created by Zicheng Tan on 12/2/23.
-//
+
 
 import SwiftUI
 

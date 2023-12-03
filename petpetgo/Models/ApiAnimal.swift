@@ -1,9 +1,4 @@
-//
-//  ApiAnimal.swift
-//  petpetgo
-//
-//  Created by Zicheng Tan on 10/15/23.
-//
+
 
 import Foundation
 
