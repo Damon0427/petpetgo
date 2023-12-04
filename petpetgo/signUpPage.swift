@@ -86,28 +86,28 @@ struct signUpPage: View {
                     Alert(title: Text("Fail to register"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                 }
         
-//    //use to check the core data for registered user
-//        List{
-//            ForEach(vm.saveEntities){
-//                entity in
-//                
-//                HStack{
-//                    Text("user:")
-//                    Text(entity.username ?? "No name")
-//                    Text("password:")
-//                    Text(entity.password ?? "No password")
-//                }
-//
-//                HStack{
-//                    Text("FN:")
-//                    Text(entity.firstname ?? "No first name")
-//                    Text("LN:")
-//                    Text(entity.lastname ?? "No last name")
-//                }
-//            }
-//            .onDelete(perform: vm.deleteUser)
-//
-//        }
+    //use to check the core data for registered user
+        List{
+            ForEach(vm.saveEntities){
+                entity in
+                
+                HStack{
+                    Text("user:")
+                    Text(entity.username ?? "No name")
+                    Text("password:")
+                    Text(entity.password ?? "No password")
+                }
+
+                HStack{
+                    Text("FN:")
+                    Text(entity.firstname ?? "No first name")
+                    Text("LN:")
+                    Text(entity.lastname ?? "No last name")
+                }
+            }
+            .onDelete(perform: vm.deleteUser)
+
+        }
         
         
             }
