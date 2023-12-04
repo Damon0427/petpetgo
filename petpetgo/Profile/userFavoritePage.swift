@@ -1,15 +1,13 @@
-//
-//  userFavoritePage.swift
-//  petpetgo
-//
-//  Created by Jiaming Zhao on 12/2/23.
-//
+
 
 import SwiftUI
 
 struct userFavoritePage: View {
     var body: some View {
-        Text("My favorite!")
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+        }
     }
 }
 

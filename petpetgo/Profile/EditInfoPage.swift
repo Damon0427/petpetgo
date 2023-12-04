@@ -1,9 +1,3 @@
-//
-//  EditInfoPage.swift
-//  petpetgo
-//
-//  Created by Jiaming Zhao on 12/2/23.
-//
 
 import SwiftUI
 
@@ -29,34 +23,56 @@ struct EditInfoPage: View {
                     
                     
                     Text("UserName: \(entity.username ?? "No name")")
+                        .bold()
 //                    Text("Password: \(entity.password ?? "No password")")
                     
                     Text("FristName: \(entity.firstname ?? "No name")")
+                        .bold()
                     Text("LastName: \(entity.lastname ?? "No name")")
+                        .bold()
                     
                     TextField("New First Name", text: $newFirstName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
                         .padding()
                     
                     Button("Update First Name") {
                         updateFirstName(entity: entity)
-                    }
+                    }.bold()
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
                     
                     TextField("New Last Name", text: $newLastName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
                         .padding()
                     
                     Button("Update Last Name") {
                         updateLastName(entity: entity)
-                    }
+                    }.bold()
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
                     
                     TextField("New passowrd", text: $newPassword)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
                         .padding()
                     
                     Button("Update Password") {
                         updatePassword(entity: entity)
-                    }
+                    }.bold()
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
+                    
                 }
             }
         }

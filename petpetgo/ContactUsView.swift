@@ -9,35 +9,49 @@ struct ContactUsView: View {
 
     var body: some View {
         NavigationView {
-            VStack (alignment:.leading){
-                Divider()
-                Text("Please enter your email:")
-                    .padding()
-            TextField("Enter your email", text: $userEmail)
-                    .padding()
-                Text("Please enter your message:")
-                    .padding()
-
-                TextEditor(text: $userMessage)
-                    .frame(height: 100)
-                    .padding()
-
-                Button("Send") {
-                    print("User message: \(userMessage)")
-                    isPresented = false
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+                VStack (alignment:.leading){
+                    
+                    Divider()
+                    Text("Please enter your email:")
+                        .padding(2)
+                        .bold()
+                    
+                    TextField("Enter your email", text: $userEmail)
+                        .frame(height: 30)
+                        .background(Color(white: 1))
+                        .padding(2)
+                    
+                    
+                    Text("Please enter your message:")
+                        .bold()
+                    Text("If you want to adopte a pet, please leave your message with pet ID number")
+                        .padding(2)
                         
+                    
+                    TextEditor(text: $userMessage)
+                        .frame(height: 100)
+                        .cornerRadius(20)
+                        .padding(2)
+                    
+                    Button("Send") {
+                        print("User message: \(userMessage)")
+                        isPresented = false
+                        
+                    }
+                    .frame(width: 50,height: 20)
+                    .cornerRadius(6)
+                    .padding()
+                    .bold()
+                    Spacer()
                 }
-                .frame(width: 50,height: 20)
-                .background(Color.white)
-                .foregroundStyle(Color.mint)
-                .cornerRadius(6)
-                .padding()
-                Spacer()
+                .navigationTitle("Contact Us")
+                .navigationBarItems(trailing: Button("Cancel") {
+                    isPresented = false
+                })
             }
-            .navigationTitle("Contact Us")
-            .navigationBarItems(trailing: Button("Cancel") {
-                isPresented = false
-            })
         }
     }
 }

@@ -104,7 +104,8 @@ struct AnimalRow: View {
 
 struct AnimalDetailView: View {
     let animal: Animals
-    
+    @State private var showingContactSheet = false
+    @State private var isFavorite = false
     
     var body: some View {
         ZStack{
@@ -135,17 +136,23 @@ struct AnimalDetailView: View {
                 
                 
                 // Display animal information
-                Text("Name: \(animal.name)")
+                Text("Id: \(animal.id)")
                     .font(.headline)
-                Text("Age: \(animal.age)")
-                    .font(.headline)
-                Text("Type: \(animal.type)")
-                    .font(.headline)
-                Text("Gender: \(animal.gender)")
-                    .font(.headline)
+                HStack{
+                    Text("Name: \(animal.name)")
+                        .font(.headline)
+                    Text("Age: \(animal.age)")
+                        .font(.headline)
+                }
+                HStack{
+                    Text("Type: \(animal.type)")
+                        .font(.headline)
+                    Text("Gender: \(animal.gender)")
+                        .font(.headline)
+                }
                 Text("Size: \(animal.size)")
                     .font(.headline)
-                
+
                 
                 
                 // Display color information
@@ -189,6 +196,40 @@ struct AnimalDetailView: View {
                 
                 Text("Description: \(animal.description ?? "")")
                     .padding()
+                
+                // contact us button and my favorite button
+                HStack{
+                    Button(action: {
+                        showingContactSheet.toggle()
+                    }
+                           , label: {
+                        Text("Contact us!")
+                            .font(.title2)
+                            .frame(width: 240,height: 50)
+                            .background(Color.yellow)
+                            .foregroundStyle(Color.black)
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
+                    })
+                    .padding()
+                    .sheet(isPresented: $showingContactSheet) {
+                        ContactUsView(isPresented: $showingContactSheet)
+                    }
+
+
+                    Button(action: {
+                        // Toggle the favorite state
+                        isFavorite.toggle()
+                    }) {
+                        Image(systemName: isFavorite ? "heart.fill" : "heart")
+                            .font(.system(size: 40))
+                            .foregroundColor(isFavorite ? .red : .black)
+                            .padding()
+//                            .background(isFavorite ? Color.yellow : Color.clear)
+//                            .clipShape(Circle())
+                    }
+
+                }
             }
         }
     }
