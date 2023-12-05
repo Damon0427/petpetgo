@@ -50,8 +50,8 @@ class coreDataviewModel: ObservableObject {
     
     func addAnimal(){
         let newAnimal = AnimalEntity(context: container.viewContext)
-        
-        
+        newAnimal.name = "shuaige"
+        newAnimal.users = [saveEntities[0]]
     }
     
     // update user first name
