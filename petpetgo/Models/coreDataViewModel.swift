@@ -3,10 +3,11 @@
 import Foundation
 import CoreData
 import SwiftUI
+
 class coreDataviewModel: ObservableObject {
     
-    
     let container: NSPersistentContainer
+    
     @Published var saveEntities: [UserEntity] = []
     init () {
         container = NSPersistentContainer(name: "userCoreData")
@@ -47,6 +48,12 @@ class coreDataviewModel: ObservableObject {
         saveData()
     }
     
+    func addAnimal(){
+        let newAnimal = AnimalEntity(context: container.viewContext)
+        
+        
+    }
+    
     // update user first name
     func updateFirstName(entity: UserEntity, newFirstName: String) {
         entity.firstname = newFirstName
@@ -68,7 +75,7 @@ class coreDataviewModel: ObservableObject {
     func saveData () {
         do{
             try container.viewContext.save()
-            fetchUser()
+            
         }catch let error{
             print("Error Saving the information. \(error)")
             

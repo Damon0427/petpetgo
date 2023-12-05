@@ -8,7 +8,7 @@ struct loginPage: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @StateObject var vm = coreDataviewModel()
-    
+    @Binding var userName : String
     var body: some View {
         VStack {
             Text ("Login    \(Image(systemName:"person"))")
@@ -19,7 +19,7 @@ struct loginPage: View {
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
                 .padding(.horizontal)
-            
+
             SecureField("Password", text: $password)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 2))
@@ -30,6 +30,7 @@ struct loginPage: View {
                 if(vm.isValidLogin(username: username, password: password)){
                     print("login success")
                     //set back to the user page if it is login
+                    userName = username
                     islogin = true
                 }else {
                     showAlert.toggle()
@@ -37,37 +38,34 @@ struct loginPage: View {
                 }
             } label: {
                 Text("SIGN IN")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.yellow.opacity(0.6))
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-                    .padding()
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.yellow.opacity(0.6))
+                .foregroundColor(.white)
+                .cornerRadius(20)
+                .padding()
             }
-            
+                    
             Divider()
             
             NavigationLink(destination: signUpPage()){
-                Text("Don't have a account? Sign up now!")
+                    Text("Don't have a account? Sign up now!")
                     .foregroundColor(.blue)
-            }
+                        }
             .padding()
             
-            
-        }
+
+            }
         
         .padding()
         .shadow(radius: 5)
-        //use to check the core data for registered user
-
-            .alert(isPresented: $showAlert) {
-                
-                Alert(title: Text("Fail to login"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-            }
-            .onAppear(){
-                vm.fetchUser()
-            }
+        .alert(isPresented: $showAlert) {
+            
+            Alert(title: Text("Fail to login"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                        }
+        .onAppear(){
+            vm.fetchUser()
         }
     }
-
+}
 

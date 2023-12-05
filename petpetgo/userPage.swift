@@ -6,7 +6,7 @@ struct userPage: View {
     @State private var islogin = false
     //    @EnvironmentObject var userViewModel: UserViewModel
     @StateObject var vm = coreDataviewModel()
-    
+    @State private var userName = ""
     
     var body: some View {
         
@@ -16,7 +16,7 @@ struct userPage: View {
                     .ignoresSafeArea()
                 VStack {
                     if islogin {
-//                        Image("profile_picture") // change photo here
+                        //                        Image("profile_picture") // change photo here
                         Image("Furina")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -30,8 +30,8 @@ struct userPage: View {
                         
                         ForEach(vm.saveEntities) {
                             entity in
-                            
-                            HStack{
+                            if entity.username == userName {
+                                HStack{
                                 Text("Hi, ")
                                     .font(.title)
                                     .fontWeight(.bold)
@@ -45,6 +45,7 @@ struct userPage: View {
                                     .underline()
                             }
                         }
+                    }
                         Divider()
                             .padding(.vertical, 10)
                         
@@ -122,9 +123,11 @@ struct userPage: View {
                         Spacer()
                     }
                     else {
-                        loginPage(islogin: $islogin)
+                        loginPage(islogin: $islogin,userName: $userName)
                     }
+                        
                 }
+                
             }
         }
     }
