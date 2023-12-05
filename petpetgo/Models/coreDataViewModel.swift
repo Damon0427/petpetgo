@@ -48,28 +48,35 @@ class coreDataviewModel: ObservableObject {
         saveData()
     }
     
-    func addAnimal(){
-        let newAnimal = AnimalEntity(context: container.viewContext)
-        newAnimal.name = "shuaige"
-        newAnimal.users = [saveEntities[0]]
-    }
+    func refreshUserData() {
+            fetchUser()
+        }
+    
+//    func addAnimal(){
+//        let newAnimal = AnimalEntity(context: container.viewContext)
+//        newAnimal.name = "shuaige"
+//        newAnimal.users = [saveEntities[0]]
+//    }
     
     // update user first name
     func updateFirstName(entity: UserEntity, newFirstName: String) {
         entity.firstname = newFirstName
         saveData()
+        fetchUser()
     }
     
     // update user last name
     func updateLastName(entity: UserEntity, newLastName: String) {
         entity.lastname = newLastName
         saveData()
+        fetchUser()
     }
     
     //update user password
     func updatePassword(entity: UserEntity, newPassword: String) {
         entity.password = newPassword
         saveData()
+        fetchUser()
     }
     
     func saveData () {

@@ -16,7 +16,8 @@ struct userPage: View {
                     .ignoresSafeArea()
                 VStack {
                     if islogin {
-                        //                        Image("profile_picture") // change photo here
+                        // Image("profile_picture")
+                        // change photo here
                         Image("Furina")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -32,20 +33,20 @@ struct userPage: View {
                             entity in
                             if entity.username == userName {
                                 HStack{
-                                Text("Hi, ")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .padding(.top, 10)
-                                
-                                
-                                Text(" \(entity.firstname ?? "") \(entity.lastname ?? "") ")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .padding(.top, 10)
-                                    .underline()
+                                    Text("Hi, ")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .padding(.top, 10)
+                                    
+                                    
+                                    Text(" \(entity.firstname ?? "") \(entity.lastname ?? "") ")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .padding(.top, 10)
+                                        .underline()
+                                }
                             }
                         }
-                    }
                         Divider()
                             .padding(.vertical, 10)
                         
@@ -53,7 +54,7 @@ struct userPage: View {
                         Button(action: {
                             print("Edit User Information")
                         }) {
-                            NavigationLink(destination: EditInfoPage()) {
+                            NavigationLink(destination: EditInfoPage(userName: userName)) {
                                 Text("Edit My Information")
                                     .fontWeight(.bold)
                                     .frame(width: 250, height: 20)
@@ -61,6 +62,10 @@ struct userPage: View {
                                     .background(Color.white)
                                     .foregroundColor(.black)
                                     .cornerRadius(10)
+                                    .onDisappear {
+                                        // Fetch user data again when returning to userPage
+                                        vm.refreshUserData()
+                                    }
                             }
                         }
                         
@@ -95,18 +100,18 @@ struct userPage: View {
                             }
                         }
                         
-//                        // setting
-//                        Button(action: {
-//                            print("Edit setting")
-//                        }) {
-//                            Text("Setting")
-//                                .fontWeight(.bold)
-//                                .frame(width: 250, height: 20)
-//                                .padding()
-//                                .background(Color.white)
-//                                .foregroundColor(.black)
-//                                .cornerRadius(10)
-//                        }
+                        //                        // setting
+                        //                        Button(action: {
+                        //                            print("Edit setting")
+                        //                        }) {
+                        //                            Text("Setting")
+                        //                                .fontWeight(.bold)
+                        //                                .frame(width: 250, height: 20)
+                        //                                .padding()
+                        //                                .background(Color.white)
+                        //                                .foregroundColor(.black)
+                        //                                .cornerRadius(10)
+                        //                        }
                         // log out
                         Button(action: {
                             islogin = false
@@ -125,7 +130,7 @@ struct userPage: View {
                     else {
                         loginPage(islogin: $islogin,userName: $userName)
                     }
-                        
+                    
                 }
                 
                 
