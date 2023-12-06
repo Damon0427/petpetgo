@@ -5,6 +5,7 @@ struct homePage: View {
     @State private var showingContactSheet = false
     @State private var userMessage = ""
     @Binding var selectedTap: Int
+    @Binding var selectionType: String
     let gallery: [String] = ["animal2","animal1","cat1"]
     let width = UIScreen.main.bounds.width
     @State private var currentIndex = 0
@@ -37,7 +38,7 @@ struct homePage: View {
                     
                     Button(action: {
                         selectedTap = 1;
-                        
+                        selectionType = "Dog"
                     }, label: {
                         Image("dogIcon")
                             .resizable()
@@ -51,7 +52,7 @@ struct homePage: View {
                 
                 Button(action: {
                     selectedTap = 1;
-                    
+                    selectionType = "Cat"
                 }, label: {
                     Image("catIcon")
                         .resizable()
@@ -98,6 +99,6 @@ struct homePage: View {
 
 struct Previews_homePage_Previews: PreviewProvider {
     static var previews: some View {
-        homePage(selectedTap: .constant(1))
+        homePage(selectedTap: .constant(1), selectionType: .constant(""))
     }
 }

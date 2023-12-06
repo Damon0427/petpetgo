@@ -3,7 +3,7 @@ import SwiftUI
 struct searchPage: View {
     @State private var searchText = ""
     @Binding var animalArray: [Animals]
-    @State private var selectedTypeFilter: String = "All"
+    @Binding var selectedTypeFilter: String
     @State private var selectedGenderFilter: String = "All"
     
     let recommendationTypeTags = ["All", "Cat", "Dog"]
@@ -106,7 +106,7 @@ struct AnimalDetailView: View {
     let animal: Animals
     @State private var showingContactSheet = false
     @State private var isFavorite = false
-    
+    @StateObject var vm = coreDataviewModel()
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -220,6 +220,11 @@ struct AnimalDetailView: View {
                     Button(action: {
                         // Toggle the favorite state
                         isFavorite.toggle()
+                        //add into coredata
+                        vm.addAnimal(name: animal.name, photo: animal.photos.first?.medium ?? "")
+                        
+//                        use to debug the coredata
+//                        vm.deleteAllAnimals()
                     }) {
                         Image(systemName: isFavorite ? "heart.fill" : "heart")
                             .font(.system(size: 40))
@@ -263,6 +268,6 @@ struct SearchBar: View {
 
 struct Previews_searchPage_Previews: PreviewProvider {
     static var previews: some View {
-        searchPage(animalArray: .constant([]))
+        searchPage(animalArray: .constant([]), selectedTypeFilter: .constant("All"))
     }
 }

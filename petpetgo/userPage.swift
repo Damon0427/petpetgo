@@ -4,7 +4,6 @@ import SwiftUI
 
 struct userPage: View {
     @State private var islogin = false
-    //    @EnvironmentObject var userViewModel: UserViewModel
     @StateObject var vm = coreDataviewModel()
     @State private var userName = ""
     
@@ -132,7 +131,9 @@ struct userPage: View {
                     }
                     
                 }
-                
+                .onAppear(){
+                    vm.fetchUser()
+                }
                 
                 
             }

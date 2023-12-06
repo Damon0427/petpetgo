@@ -22,7 +22,8 @@ struct ContentView: View {
 
     @State
     var animalArray: [Animals] = []
-    
+    @State
+    var selectionType: String = ""
     let service = petService()
     
     @State private var selectedTab = 0
@@ -35,14 +36,14 @@ struct ContentView: View {
             NavigationStack {
                 
                 TabView(selection: $selectedTab){
-                    homePage(selectedTap: $selectedTab)
+                    homePage(selectedTap: $selectedTab, selectionType: $selectionType)
                     .tabItem {
                         Image(systemName: "house")
                         Text("Home")
                         
                     }
                     .tag(0)
-                    searchPage(animalArray: $animalArray)
+                    searchPage(animalArray: $animalArray, selectedTypeFilter: $selectionType)
                     .tabItem {
                         Image(systemName:"magnifyingglass")
                         Text("Search")
@@ -74,14 +75,6 @@ struct ContentView: View {
             Task{
                 
             do{
-                let appear = UINavigationBarAppearance()
-                let atters: [NSAttributedString.Key: Any] = [
-                    .font: UIFont(name: "IndieFlower", size: 28)!
-                ]
-                appear.largeTitleTextAttributes = atters
-                appear.titleTextAttributes = atters
-                UINavigationBar.appearance().standardAppearance = appear
-                
                let token = try await service.getAccessToken()
                let accessToken = token.accessToken
                 
