@@ -23,7 +23,7 @@ struct ContentView: View {
     @State
     var animalArray: [Animals] = []
     @State
-    var selectionType: String = ""
+    var selectionType: String = "All"
     let service = petService()
     
     @State private var selectedTab = 0

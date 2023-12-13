@@ -13,6 +13,9 @@ class coreDataviewModel: ObservableObject {
 
     init () {
         container = NSPersistentContainer(name: "userCoreData")
+        let mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        
+        container.viewContext.mergePolicy = mergePolicy
         container.loadPersistentStores { description, error in
             if let error = error  {
                 
@@ -26,14 +29,14 @@ class coreDataviewModel: ObservableObject {
         fetchAnimal()
 
     }
-    func findLoggedInUserAnimals() -> [AnimalEntity] {
-            guard let loginUser = saveEntities.first(where: { $0.islogin }) else {
-                return []
+    func fetchLoggedInUserAnimals() -> [AnimalEntity]? {
+        if let loggedInUser = findLoggedInUser() {
+            if let animals = loggedInUser.animals {
+                return animals.allObjects as? [AnimalEntity]
             }
-            
-            let userAnimals = loginUser.animals?.allObjects as? [AnimalEntity] ?? []
-            return userAnimals
         }
+        return nil
+    }
         func fetchAnimal() {
             let request = NSFetchRequest<AnimalEntity>(entityName: "AnimalEntity")
             do{
@@ -71,7 +74,8 @@ class coreDataviewModel: ObservableObject {
                 //find the loginUser, and story the animal into User
             if let loginUser = findLoggedInUser() {
                     print("add animal success")
-                    newAnimal.users = [loginUser]
+                
+                loginUser.addToAnimals(newAnimal)
                 }
                 
                 saveData()
@@ -110,22 +114,26 @@ class coreDataviewModel: ObservableObject {
         fetchUser()
     }
     func updateLoginStatus(userName: String){
+        print("\(userName)")
             for entity in saveEntities {
                 if entity.username == userName {
-                    print("Login status set to false")
                     entity.islogin = false
+                    saveData()
                     break;
                 }
             }
-        saveData()
+
     }
     func saveData () {
-        do{
-            try container.viewContext.save()
+        container.viewContext.perform {
             
-        }catch let error{
-            print("Error Saving the information. \(error)")
-            
+            do{
+                try self.container.viewContext.save()
+                
+            }catch let error{
+                print("Error Saving the information. \(error)")
+                
+            }
         }
     }
  

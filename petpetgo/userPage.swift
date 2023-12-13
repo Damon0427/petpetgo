@@ -114,6 +114,7 @@ struct userPage: View {
                         // log out
                         Button(action: {
                             islogin = false
+                            vm.updateLoginStatus(userName: userName)
                         }) {
                             Text("Log out")
                                 .fontWeight(.bold)
